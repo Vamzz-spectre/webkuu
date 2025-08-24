@@ -1,0 +1,157 @@
+/* ===== Style Umum ===== */
+body {
+  background-color: #0d1b2a; /* biru gelap */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+/* ===== Navigasi ===== */
+nav {
+  background-color: #1b263b;
+  padding: 12px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+/* ===== Efek Ngetik ===== */
+.typing {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffd60a;
+  border-right: 3px solid #ffd60a;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  margin: auto;
+  animation: typing 3s steps(30, end) forwards,
+             blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 250px } /* panjang teks (sesuaikan) */
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: #ffd60a; }
+}
+nav a {
+  color: #e0e1dd;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #ffd60a;
+}
+
+/* ===== Judul ===== */
+h1 {
+  color: #ffd60a;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+}
+
+/* ===== Tentang Saya ===== */
+#about {
+  text-align: center;
+  margin: 40px auto;
+}
+
+/* ===== Project ===== */
+
+#project {
+  padding: 60px 20px;
+  background: #0d1b2a; /* dark blue */
+  color: #fff;
+  text-align: center;
+}
+
+#project h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #1b263b;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.project-container {
+  display: flex;
+  justify-content: center; /* Tengah horizontal */
+  align-items: center;     /* Tengah vertikal */
+  flex-wrap: wrap;         /* Kalau layar sempit, otomatis turun */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Card */
+.project-card {
+  background: #1b263b;
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: 2px solid transparent; /* default ga keliatan */
+  outline: none; /* hilangin border default pas focus */
+}
+
+/* Hover */
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+/* Klik / Focus */
+.project-card:focus {
+  border: 2px solid #ffd60a;
+  box-shadow: 0 6px 14px rgba(255, 214, 10, 0.6);
+  transform: scale(0.98);
+}
+
+
+/* ===== Footer / Kontak ===== */
+/* Footer Contact Box */
+footer#contact {
+  background: #1b263b;
+  padding: 30px;
+  margin-top: 40px;
+  text-align: center;
+  border: 1.5px solid #ffd60a; /* garis tipis kuning */
+  border-radius: 12px; /* sudut melengkung */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* efek ngambang */
+  color: #e0e1dd; /* warna teks */
+  font-family: Arial, sans-serif;
+}
+
+/* Tombol WhatsApp */
+.wa-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #25D366; /* hijau WA */
+  color: white;
+  text-decoration: none;
+  border-radius: 12px; /* melengkung */
+  font-weight: bold;
+  border: 1.5px solid #ffd60a; /* garis tipis kuning */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* efek ngambang */
+  transition: all 0.3s ease;
+}
+
+/* Efek hover tombol */
+.wa-btn:hover {
+  background: #1ebe5c; /* hijau lebih gelap */
+  transform: translateY(-3px); /* naik sedikit */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
