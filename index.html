@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahmi Dev - Junior Developer & Bot Creator</title>
+    <meta name="description" content="Portfolio Fahmi Nur Fitrianto - Junior Developer, Bot Creator, UI/UX Designer">
+    <meta name="keywords" content="web developer, bot creator, javascript, react, nodejs, portfolio">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/code.png">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#home" class="logo">
+                <i class="fas fa-code"></i>
+                <span>Fahmi<span class="logo-highlight">Dev</span></span>
+            </a>
+            
+            <div class="nav-right">
+                <div class="nav-links" id="navLinks">
+                    <a href="#home" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="#about" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="#skills" class="nav-link">
+                        <i class="fas fa-cogs"></i>
+                        <span>Skills</span>
+                    </a>
+                    <a href="#projects" class="nav-link">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Projects</span>
+                    </a>
+                    <a href="#experience" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Experience</span>
+                    </a>
+                    <a href="#contact" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </div>
+                
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h4 class="hero-subtitle">Hello, I'm</h4>
+                    <h1 class="hero-title">
+                        <span class="text-gradient">Fahmi Nur Fitrianto</span>
+                    </h1>
+                    <h2 class="hero-role">
+                        <span class="typing-text" id="typingText"></span>
+                    </h2>
+                    
+                    <p class="hero-description">
+                        Junior Developer & Bot Creator with 2+ years of experience in building 
+                        modern web applications, intelligent bots, and scalable solutions. 
+                        Passionate about clean code, great UX, and cutting-edge technologies.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Clients</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Satisfaction</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Hire Me
+                        </a>
+                        <a href="#projects" class="btn btn-secondary">
+                            <i class="fas fa-eye"></i>
+                            View Work
+                        </a>
+                        <button class="btn btn-outline" onclick="downloadCV()">
+                            <i class="fas fa-download"></i>
+                            Download CV
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img src="https://files.catbox.moe/yi1kz1.png" alt="Fahmi Nur Fitrianto" class="profile-img">
+                        <div class="image-badge">
+                            <div class="badge-content">
+                                <i class="fas fa-code"></i>
+                                <span>Available for work</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-text">Scroll Down</div>
+            <div class="scroll-icon">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About <span class="text-gradient">Me</span></h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="About Me">
+                        <div class="experience-badge">
+                            <div class="badge-number">2+</div>
+                            <div class="badge-text">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <h3 class="about-title">Junior Developer & Bot Specialist</h3>
+                    
+                    <div class="about-description">
+                        <p>
+                            I'm a passionate Junior Developer and Bot Creator with over 2 years of professional 
+                            experience. I specialize in building modern web applications, intelligent bots, and 
+                            scalable backend systems.
+                        </p>
+                        <p>
+                            My expertise spans across the entire development stack, from creating responsive front-end 
+                            interfaces with React to building robust back-end APIs with Node.js. I'm particularly 
+                            skilled in bot development for WhatsApp, Telegram, and Discord platforms.
+                        </p>
+                    </div>
+                    
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-user detail-icon"></i>
+                            <div class="detail-content">
+                                <h4>Name</h4>
+                                <p>Fahmi Nur Fitrianto</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <i class="fas fa-envelope detail-icon"></i>
+                            <div class="detail-content">
+                                <h4>Email</h4>
+                                <p>contact@fahmidev.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt detail-icon"></i>
+                            <div class="detail-content">
+                                <h4>Location</h4>
+                                <p>Mojokerto, Indonesia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt detail-icon"></i>
+                            <div class="detail-content">
+                                <h4>Experience</h4>
+                                <p>2+ Years</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section (DIPERBAIKI & DIPERBESAR) -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My <span class="text-gradient">Skills</span></h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+            
+            <!-- Skills Navigation -->
+            <div class="skills-categories">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-th-large"></i> All Skills
+                </button>
+                <button class="category-btn" data-category="frontend">
+                    <i class="fas fa-desktop"></i> Frontend
+                </button>
+                <button class="category-btn" data-category="backend">
+                    <i class="fas fa-server"></i> Backend
+                </button>
+                <button class="category-btn" data-category="database">
+                    <i class="fas fa-database"></i> Database
+                </button>
+                <button class="category-btn" data-category="tools">
+                    <i class="fas fa-tools"></i> Tools
+                </button>
+                <button class="category-btn" data-category="bot">
+                    <i class="fas fa-robot"></i> Bot Development
+                </button>
+                <button class="category-btn" data-category="mobile">
+                    <i class="fas fa-mobile-alt"></i> Mobile
+                </button>
+            </div>
+            
+            <!-- Skills Grid -->
+            <div class="skills-grid">
+                <!-- Frontend Skills -->
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">HTML5</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 95%"></div>
+                                </div>
+                                <span class="level-text">95%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Semantic markup, accessibility, SEO optimization, modern HTML5 APIs.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Semantic</span>
+                        <span class="skill-tag">SEO</span>
+                        <span class="skill-tag">Accessibility</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">CSS3</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 90%"></div>
+                                </div>
+                                <span class="level-text">90%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Advanced CSS3 features, Flexbox, Grid, animations, responsive design.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Flexbox</span>
+                        <span class="skill-tag">Grid</span>
+                        <span class="skill-tag">Animations</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">JavaScript</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 88%"></div>
+                                </div>
+                                <span class="level-text">88%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        ES6+, async/await, DOM manipulation, APIs, modern JavaScript patterns.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ES6+</span>
+                        <span class="skill-tag">Async</span>
+                        <span class="skill-tag">DOM</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">React.js</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 85%"></div>
+                                </div>
+                                <span class="level-text">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Hooks, Context API, Redux, React Router, component architecture.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Hooks</span>
+                        <span class="skill-tag">Redux</span>
+                        <span class="skill-tag">Components</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-vuejs"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Vue.js</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 75%"></div>
+                                </div>
+                                <span class="level-text">75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Vue 3, Composition API, Vue Router, Pinia, Vue ecosystem.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Vue 3</span>
+                        <span class="skill-tag">Pinia</span>
+                        <span class="skill-tag">Components</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-sass"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Sass/SCSS</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 80%"></div>
+                                </div>
+                                <span class="level-text">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        CSS preprocessing, mixins, functions, modular styles, BEM methodology.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Mixins</span>
+                        <span class="skill-tag">Functions</span>
+                        <span class="skill-tag">BEM</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-bootstrap"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Bootstrap</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 85%"></div>
+                                </div>
+                                <span class="level-text">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Bootstrap 5, responsive utilities, components, customization.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bootstrap 5</span>
+                        <span class="skill-tag">Components</span>
+                        <span class="skill-tag">Responsive</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-tailwind"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Tailwind CSS</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 82%"></div>
+                                </div>
+                                <span class="level-text">82%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Utility-first CSS, responsive design, customization, plugins.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Utility-first</span>
+                        <span class="skill-tag">Responsive</span>
+                        <span class="skill-tag">Customization</span>
+                    </div>
+                </div>
+                
+                <!-- Backend Skills -->
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Node.js</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 87%"></div>
+                                </div>
+                                <span class="level-text">87%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        REST APIs, authentication, middleware, file handling, streams.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">Middleware</span>
+                        <span class="skill-tag">Authentication</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Python</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 78%"></div>
+                                </div>
+                                <span class="level-text">78%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Django, Flask, data processing, automation, scripting.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Automation</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-php"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">PHP</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 75%"></div>
+                                </div>
+                                <span class="level-text">75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Laravel, WordPress, custom CMS, server-side scripting.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">CMS</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Express.js</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 86%"></div>
+                                </div>
+                                <span class="level-text">86%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Fast, minimalist web framework for Node.js, routing, middleware.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Middleware</span>
+                        <span class="skill-tag">Routing</span>
+                        <span class="skill-tag">REST</span>
+                    </div>
+                </div>
+                
+                <!-- Database Skills -->
+                <div class="skill-card" data-category="database">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">MongoDB</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 82%"></div>
+                                </div>
+                                <span class="level-text">82%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        NoSQL, Mongoose ODM, aggregation, indexing, data modeling.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">NoSQL</span>
+                        <span class="skill-tag">Mongoose</span>
+                        <span class="skill-tag">Aggregation</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="database">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">MySQL</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 80%"></div>
+                                </div>
+                                <span class="level-text">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Database design, queries, optimization, stored procedures.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Queries</span>
+                        <span class="skill-tag">Optimization</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="database">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Firebase</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 79%"></div>
+                                </div>
+                                <span class="level-text">79%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Real-time database, authentication, cloud functions, hosting.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Realtime</span>
+                        <span class="skill-tag">Auth</span>
+                        <span class="skill-tag">Cloud</span>
+                    </div>
+                </div>
+                
+                <!-- Bot Development Skills -->
+                <div class="skill-card" data-category="bot">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">WhatsApp Bot</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 92%"></div>
+                                </div>
+                                <span class="level-text">92%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Baileys library, automation, multi-device, AI integration, panel.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Baileys</span>
+                        <span class="skill-tag">Automation</span>
+                        <span class="skill-tag">AI</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="bot">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Telegram Bot</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 88%"></div>
+                                </div>
+                                <span class="level-text">88%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Telegraf.js, inline keyboards, payment integration, group management.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Telegraf</span>
+                        <span class="skill-tag">Payment</span>
+                        <span class="skill-tag">Groups</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="bot">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Discord Bot</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 85%"></div>
+                                </div>
+                                <span class="level-text">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Discord.js, slash commands, music bots, moderation, events.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Discord.js</span>
+                        <span class="skill-tag">Commands</span>
+                        <span class="skill-tag">Moderation</span>
+                    </div>
+                </div>
+                
+                <!-- Mobile Skills -->
+                <div class="skill-card" data-category="mobile">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">React Native</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 72%"></div>
+                                </div>
+                                <span class="level-text">72%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Cross-platform mobile apps, native modules, UI components.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Cross-platform</span>
+                        <span class="skill-tag">Native</span>
+                        <span class="skill-tag">UI</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="mobile">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Flutter</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 65%"></div>
+                                </div>
+                                <span class="level-text">65%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Dart programming, widget-based UI, Material Design, Cupertino.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Dart</span>
+                        <span class="skill-tag">Widgets</span>
+                        <span class="skill-tag">Material</span>
+                    </div>
+                </div>
+                
+                <!-- Tools Skills -->
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Git</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 90%"></div>
+                                </div>
+                                <span class="level-text">90%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Version control, branching, merging, GitHub, GitLab, workflows.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Version Control</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Workflows</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Docker</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 70%"></div>
+                                </div>
+                                <span class="level-text">70%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Containerization, Docker Compose, images, deployment, orchestration.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Containers</span>
+                        <span class="skill-tag">Deployment</span>
+                        <span class="skill-tag">Images</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fab fa-figma"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Figma</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 85%"></div>
+                                </div>
+                                <span class="level-text">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        UI/UX design, prototyping, components, collaboration, design systems.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">UI/UX</span>
+                        <span class="skill-tag">Prototyping</span>
+                        <span class="skill-tag">Design System</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h3 class="skill-title">Jira</h3>
+                            <div class="skill-level">
+                                <div class="level-bar">
+                                    <div class="level-progress" style="width: 75%"></div>
+                                </div>
+                                <span class="level-text">75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Agile project management, sprints, tickets, workflows, reporting.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Sprints</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills Summary -->
+            <div class="skills-summary">
+                <div class="summary-card">
+                    <i class="fas fa-layer-group summary-icon"></i>
+                    <h3 class="summary-title">24+ Skills</h3>
+                    <p class="summary-text">Wide range of technical expertise</p>
+                </div>
+                
+                <div class="summary-card">
+                    <i class="fas fa-star summary-icon"></i>
+                    <h3 class="summary-title">Expert Level</h3>
+                    <p class="summary-text">Frontend & Bot Development</p>
+                </div>
+                
+                <div class="summary-card">
+                    <i class="fas fa-rocket summary-icon"></i>
+                    <h3 class="summary-title">Fast Learner</h3>
+                    <p class="summary-text">Quick adaptation to new technologies</p>
+                </div>
+                
+                <div class="summary-card">
+                    <i class="fas fa-certificate summary-icon"></i>
+                    <h3 class="summary-title">Certified</h3>
+                    <p class="summary-text">Multiple technical certifications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My <span class="text-gradient">Projects</span></h2>
+                <p class="section-subtitle">Recent work showcase</p>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="bot">Bot Projects</button>
+                <button class="filter-btn" data-filter="api">API Projects</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Projects will be added here -->
+            </div>
+            
+            <div class="projects-actions">
+                <a href="https://github.com" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-github"></i>
+                    View More on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In <span class="text-gradient">Touch</span></h2>
+                <p class="section-subtitle">Let's work together</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p>contact@fahmidev.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>WhatsApp</h3>
+                            <p>+62 812 3456 7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Telegram</h3>
+                            <p>@fahmidev</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Location</h3>
+                            <p>Mojokerto, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" id="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" id="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="#home" class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>Fahmi<span class="logo-highlight">Dev</span></span>
+                    </a>
+                    <p class="footer-text">
+                        Junior Developer & Bot Creator specializing in modern web technologies and automation.
+                    </p>
+                    
+                    <div class="footer-social">
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">Bot Development</a></li>
+                        <li><a href="#services">API Development</a></li>
+                        <li><a href="#services">UI/UX Design</a></li>
+                        <li><a href="#services">Consultation</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fahmi Nur Fitrianto. All Rights Reserved.</p>
+                <p>Made with <i class="fas fa-heart"></i> in Mojokerto, Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
