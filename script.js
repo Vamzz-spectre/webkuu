@@ -68,7 +68,7 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         preloader.classList.add('loaded');
         document.body.style.overflow = 'auto';
-    }, 800);
+    }, 10);
 });
 
 // Prevent scroll during loading
