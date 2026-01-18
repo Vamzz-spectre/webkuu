@@ -278,13 +278,13 @@ function initSkillsFilter() {
 function initProjectsFilter() {
     const projects = [
         {
-            title: "E-Commerce Platform",
+            title: "Money Tracker",
             category: "web",
-            description: "Full-featured online store with cart, checkout, and admin panel",
-            tags: ["React", "Node.js", "MongoDB", "Stripe"],
+            description: "Website Pencatat Uang Anda Dengan Berbagai Fitur Menarik.",
+            tags: ["Html5", "Css","JavaScript""],
             image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-            demo: "#",
-            code: "#"
+            demo: "catat-pengeluaranmu-seven.vercel.app",
+            code: " https://github.com/Vamzz-spectre/Web-tracker"
         },
         {
             title: "WhatsApp Business Bot",
