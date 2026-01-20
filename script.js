@@ -454,8 +454,8 @@ function initProjectsFilter() {
             category: "web",
             description: "Website Pencatat Uang Anda Dengan Berbagai Fitur Menarik.",
             tags: ["Html5", "Css", "JavaScript"],
-            image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-            demo: "https://catat-pengeluaranmu-seven.vercel.app",
+            image: "https://files.catbox.moe/i44byp.jpg",
+            demo: "https://catat-pengeluaran-seven.vercel.app/",
             code: "https://github.com/Vamzz-spectre/Web-tracker"
         },
         {
