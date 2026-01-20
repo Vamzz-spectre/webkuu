@@ -30,6 +30,189 @@ function fixViewport() {
     }
 }
 
+// ===== ENHANCED PRELOADER WITH CONDITIONAL LOADING =====
+function initPreloader() {
+    // Cek apakah halaman sudah di-cache
+    const wasCached = () => {
+        if (performance.getEntriesByType) {
+            const navEntries = performance.getEntriesByType('navigation');
+            if (navEntries.length > 0) {
+                return navEntries[0].transferSize === 0;
+            }
+        }
+        return false;
+    };
+    
+    // Periksa koneksi internet
+    const checkConnection = () => {
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (connection) {
+            const effectiveType = connection.effectiveType;
+            const downlink = connection.downlink || 1; // Mbps
+            const rtt = connection.rtt || 100; // ms
+            
+            // Tentukan kategori koneksi
+            if (effectiveType === 'slow-2g' || downlink < 0.5 || rtt > 2000) {
+                return 'slow';
+            } else if (effectiveType === '2g' || downlink < 1.5) {
+                return 'medium';
+            } else {
+                return 'fast';
+            }
+        }
+        return 'unknown';
+    };
+    
+    // Tentukan durasi loading minimum berdasarkan kondisi
+    const getLoadingTime = () => {
+        const cached = wasCached();
+        const connection = checkConnection();
+        
+        if (cached) {
+            // Jika di-cache, loading cepat
+            console.log('📦 Page loaded from cache');
+            return 500;
+        } else if (connection === 'slow') {
+            // Koneksi lambat
+            console.log('🐌 Slow connection detected');
+            return 2000;
+        } else if (connection === 'medium') {
+            // Koneksi sedang
+            console.log('🚗 Medium connection');
+            return 1200;
+        } else {
+            // Koneksi cepat atau tidak diketahui
+            console.log('🚀 Fast connection');
+            return 800;
+        }
+    };
+    
+    // Fungsi untuk mengecek elemen penting
+    const checkCriticalElements = () => {
+        const criticalElements = [
+            document.getElementById('navbar'),
+            document.getElementById('hero'),
+            document.querySelector('.skills-container'),
+            document.querySelector('.projects-grid'),
+            document.querySelector('main')
+        ];
+        
+        let loadedCount = 0;
+        criticalElements.forEach(element => {
+            if (element && element.innerHTML.trim().length > 0) {
+                loadedCount++;
+            }
+        });
+        
+        return {
+            loaded: loadedCount,
+            total: criticalElements.length,
+            percentage: (loadedCount / criticalElements.length) * 100
+        };
+    };
+    
+    // Tambahkan progress bar ke preloader
+    const addProgressBar = () => {
+        const progressBar = document.createElement('div');
+        progressBar.className = 'loading-progress';
+        progressBar.style.cssText = `
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1001;
+        `;
+        preloader.appendChild(progressBar);
+        return progressBar;
+    };
+    
+    // Fungsi update progress
+    const updateProgress = (progressBar, percentage) => {
+        if (progressBar) {
+            progressBar.style.width = `${percentage}%`;
+        }
+    };
+    
+    // Start preloader
+    const startTime = Date.now();
+    const minLoadingTime = getLoadingTime();
+    const progressBar = addProgressBar();
+    
+    console.log(`⏱️ Minimum loading time: ${minLoadingTime}ms`);
+    
+    // Update progress secara bertahap
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        // Update berdasarkan waktu
+        const elapsedTime = Date.now() - startTime;
+        const timeProgress = Math.min(90, (elapsedTime / minLoadingTime) * 90);
+        
+        // Update berdasarkan konten
+        const contentStatus = checkCriticalElements();
+        const contentProgress = Math.min(50, contentStatus.percentage * 0.5);
+        
+        // Gabungkan progress
+        progress = Math.min(95, timeProgress + contentProgress);
+        updateProgress(progressBar, progress);
+        
+        console.log(`📊 Loading progress: ${Math.round(progress)}% (Content: ${Math.round(contentStatus.percentage)}%)`);
+        
+        // Hentikan interval jika sudah selesai
+        if (progress >= 95) {
+            clearInterval(progressInterval);
+        }
+    }, 100);
+    
+    // Tunggu window load event
+    window.addEventListener('load', () => {
+        console.log('✅ Window loaded');
+        
+        // Tunggu sedikit untuk memastikan konten siap
+        setTimeout(() => {
+            // Selesaikan progress
+            updateProgress(progressBar, 100);
+            
+            // Tunggu minimum loading time
+            const elapsedTime = Date.now() - startTime;
+            const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+            
+            console.log(`⏳ Waiting ${remainingTime}ms more...`);
+            
+            setTimeout(() => {
+                // Sembunyikan preloader dengan animasi
+                preloader.classList.add('loaded');
+                document.body.style.overflow = 'auto';
+                
+                // Hapus progress bar setelah animasi
+                setTimeout(() => {
+                    if (progressBar && progressBar.parentElement) {
+                        progressBar.parentElement.removeChild(progressBar);
+                    }
+                }, 500);
+                
+                console.log('🎉 Preloader completed');
+                
+                // Tampilkan toast welcome
+                setTimeout(() => {
+                    showToast('Welcome to my portfolio! 🚀', 'info');
+                }, 500);
+            }, remainingTime);
+        }, 300);
+    });
+    
+    // Fallback jika load event tidak terpicu
+    setTimeout(() => {
+        if (!preloader.classList.contains('loaded')) {
+            console.log('⚠️ Load timeout triggered');
+            preloader.classList.add('loaded');
+            document.body.style.overflow = 'auto';
+        }
+    }, minLoadingTime + 5000); // Timeout setelah 5 detik lebih dari waktu minimum
+}
+
 // ===== THEME MANAGEMENT =====
 function initTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -62,17 +245,6 @@ function toggleTheme() {
     
     showToast(`Theme changed to ${newTheme} mode`, 'info');
 }
-
-// ===== PRELOADER =====
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        preloader.classList.add('loaded');
-        document.body.style.overflow = 'auto';
-    }, 10);
-});
-
-// Prevent scroll during loading
-document.body.style.overflow = 'hidden';
 
 // ===== TYPING EFFECT (Optimized for Mobile) =====
 const roles = [
@@ -281,10 +453,10 @@ function initProjectsFilter() {
             title: "Money Tracker",
             category: "web",
             description: "Website Pencatat Uang Anda Dengan Berbagai Fitur Menarik.",
-            tags: ["Html5", "Css","JavaScript""],
+            tags: ["Html5", "Css", "JavaScript"],
             image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-            demo: "catat-pengeluaranmu-seven.vercel.app",
-            code: " https://github.com/Vamzz-spectre/Web-tracker"
+            demo: "https://catat-pengeluaranmu-seven.vercel.app",
+            code: "https://github.com/Vamzz-spectre/Web-tracker"
         },
         {
             title: "WhatsApp Business Bot",
@@ -605,10 +777,13 @@ function applyMobileFixes() {
 
 // ===== INITIALIZE EVERYTHING =====
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🚀 Initializing portfolio...');
+    
     // Initialize all components
     fixViewport();
     applyMobileFixes();
     initTheme();
+    initPreloader(); // Enhanced preloader
     initNavigation();
     initBackToTop();
     initSkillsFilter();
@@ -616,28 +791,31 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initAnimations();
     
-    // Start typing effect
-    typeRole();
+    // Start typing effect (tunggu preloader selesai)
+    setTimeout(() => {
+        if (typingText) {
+            typeRole();
+        }
+    }, 1000);
     
     // Event listeners
-    themeToggle.addEventListener('click', toggleTheme);
-    
-    // Add touch support for theme toggle
-    themeToggle.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        toggleTheme();
-    });
-    
-    // Show initial toast
-    setTimeout(() => {
-        showToast('Welcome to my portfolio! 🚀', 'info');
-    }, 1500);
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Add touch support for theme toggle
+        themeToggle.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            toggleTheme();
+        });
+    }
     
     // Update copyright year
     const yearSpan = document.getElementById('currentYear');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
+    
+    console.log('✅ Portfolio initialized successfully');
 });
 
 // ===== WINDOW RESIZE HANDLER =====
@@ -646,10 +824,12 @@ window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
         // Close mobile menu on resize to desktop
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 768 && navLinksContainer) {
             navLinksContainer.classList.remove('active');
-            menuToggle.classList.remove('active');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            if (menuToggle) {
+                menuToggle.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
             document.body.style.overflow = 'auto';
         }
     }, 250);
@@ -765,4 +945,4 @@ function scrollFilter(direction) {
 // Initialize swipe support on mobile
 if (isMobile()) {
     handleSwipe();
-}
+                    }
